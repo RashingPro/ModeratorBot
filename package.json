@@ -1,0 +1,28 @@
+{
+  "name": "ModeratorBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "run": "node ./dist/index.js",
+    "build&run": "npm run build && npm run run",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.14",
+    "babel-jest": "^30.0.4",
+    "jest": "^30.0.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "private": true
+}
