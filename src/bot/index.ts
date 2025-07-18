@@ -1,5 +1,5 @@
-import { Context, Telegraf } from "telegraf";
 import Logger from "../logger";
+import { Context, Telegraf } from "telegraf";
 
 export interface BotOptions {
     groupId: number;
