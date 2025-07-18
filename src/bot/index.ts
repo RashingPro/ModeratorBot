@@ -23,7 +23,7 @@ export default class Bot extends TelegramBot {
                 (...args) => this.handleMessage(...args),
                 (msg) =>
                     this.logger.warn(
-                        `${msg.from?.username} (${msg.from?.id}) tried to use bot in channel ${msg.chat.title} (${msg.chat.id}, type - ${msg.chat.type})`
+                        `${msg.from?.username} (${msg.from?.id}) tried to use bot in channel \x1b[33m${msg.chat.title}\x1b[0m (${msg.chat.id}, type - ${msg.chat.type})`
                     )
             )
         );
@@ -32,7 +32,11 @@ export default class Bot extends TelegramBot {
     public readonly logger: Logger;
 
     async handleMessage(message: Message) {
-        if (message.text?.startsWith("/")) await this.handleCommand(message);
+        try {
+            if (message.text?.startsWith("/")) await this.handleCommand(message);
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     async handleCommand(message: Message) {
