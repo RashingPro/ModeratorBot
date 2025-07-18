@@ -7,7 +7,8 @@
     "build": "tsc",
     "run": "node ./dist/index.js",
     "build&run": "npm run build && npm run run",
-    "test": "jest"
+    "test": "jest",
+    "prettier": "node --experimental-strip-types node_modules/prettier/bin/prettier.cjs **/*.?(c)ts --write"
   },
   "dependencies": {
     "dotenv": "^17.2.0",
@@ -24,5 +25,6 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   },
-  "private": true
+  "private": true,
+  "type": "module"
 }
