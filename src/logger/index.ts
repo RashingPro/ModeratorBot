@@ -29,9 +29,7 @@ export default class Logger {
             [time.getSeconds(), 2],
             [time.getMilliseconds(), 3]
         ];
-        const formattedValues = values.map((value) =>
-            value[0].toString().padStart(value[1], "0")
-        );
+        const formattedValues = values.map((value) => value[0].toString().padStart(value[1], "0"));
         return `\x1b[33m[${formattedValues[0]}.${formattedValues[1]}.${formattedValues[2]} – ${formattedValues[3]}:${formattedValues[4]}:${formattedValues[5]} ${formattedValues[6]}ms]`;
     }
 
