@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import eslintConfigPrettierFlat from "eslint-config-prettier/flat";
 import { defineConfig } from "eslint/config";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -14,6 +15,7 @@ export default defineConfig([
         languageOptions: { globals: globals.browser }
     },
     tseslint.configs.recommended,
+    eslintConfigPrettierFlat,
     {
         rules: {
             "@typescript-eslint/no-explicit-any": 1
