@@ -44,9 +44,10 @@ export default class Logger {
             } else {
                 try {
                     result += item.toString();
-                } catch (e) {
+                } catch (err) {
                     result += typeof item;
                     console.warn("Cannot log item:", item);
+                    console.warn(err);
                 }
             }
         });
