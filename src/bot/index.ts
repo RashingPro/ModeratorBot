@@ -20,7 +20,11 @@ export default class Bot extends TelegramBot {
                     const chatId = msg.chat.id;
                     return chatId == options.groupId;
                 },
-                (...args) => this.handleMessage(...args)
+                (...args) => this.handleMessage(...args),
+                (msg) =>
+                    this.logger.warn(
+                        `${msg.from?.username} (${msg.from?.id}) tried to use bot in channel ${msg.chat.title} (${msg.chat.id}, type - ${msg.chat.type})`
+                    )
             )
         );
     }
