@@ -1,11 +1,10 @@
-import {Message} from "node-telegram-bot-api";
+import Bot from "../index";
+import { muteCommand } from "./mute";
+import { Message } from "node-telegram-bot-api";
 
 export interface CommandDefinition {
-    name: string,
-    handler: (bot: Bot, message: Message) => Promise<void>
+    name: string;
+    handler: (bot: Bot, message: Message) => Promise<void>;
 }
 
-import { muteCommand } from "./mute";
-import Bot from "../index";
-
-export default [muteCommand]
+export default [muteCommand];

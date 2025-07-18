@@ -14,20 +14,22 @@ export default class Bot extends TelegramBot {
         super(options.token, { polling: true });
         this.on(
             "message",
-            guard((msg) => {
-                const chatId = msg.chat.id
-                return chatId == options.groupId
-            }, (...args) => this.handleMessage(...args))
+            guard(
+                (msg) => {
+                    const chatId = msg.chat.id;
+                    return chatId == options.groupId;
+                },
+                (...args) => this.handleMessage(...args)
+            )
         );
     }
 
     async handleMessage(message: Message) {
-        if (message.text?.startsWith("/"))
-            await this.handleCommand(message);
+        if (message.text?.startsWith("/")) await this.handleCommand(message);
     }
 
     async handleCommand(message: Message) {
-        const commandName = message.text?.split(" ")[0].slice(1)
+        const commandName = message.text?.split(" ")[0].slice(1);
         if (!commandName) return;
         const command = commands.find((value) => value.name === commandName);
         if (!command) return;
