@@ -12,6 +12,7 @@ export interface BotOptions {
 export default class Bot extends TelegramBot {
     constructor(options: BotOptions & ConstructorOptions) {
         super(options.token, { polling: true });
+        this.logger = options.logger;
         this.on(
             "message",
             guard(
@@ -23,6 +24,8 @@ export default class Bot extends TelegramBot {
             )
         );
     }
+
+    public readonly logger: Logger;
 
     async handleMessage(message: Message) {
         if (message.text?.startsWith("/")) await this.handleCommand(message);
